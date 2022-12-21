@@ -11,6 +11,7 @@ import {
 import { NavItem, NavLink, Nav } from "reactstrap";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
+import About from "../content/About";
 
 import SubMenu from "./SubMenu";
 
@@ -20,35 +21,22 @@ const SideBar = ({ isOpen, toggle }) => (
       <span color="info" onClick={toggle} style={{ color: "#fff" }}>
         &times;
       </span>
-      <h3>Bootstrap Sidebar</h3>
+      <h3> Sidebar</h3>
     </div>
     <div className="side-menu">
       <Nav vertical className="list-unstyled pb-3">
-        <p>Dummy Heading</p>
+        <p> Heading</p>
         <SubMenu title="Home" icon={faHome} items={submenus[0]} />
         <NavItem>
-          <NavLink tag={Link} to={"/about"}>
+          <NavLink tag={Link} to={"/"}>
+            <FontAwesomeIcon icon={faHome} className="mr-2" />
+            Home
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink tag={Link} to={"/abouts"}>
             <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
             About
-          </NavLink>
-        </NavItem>
-        <SubMenu title="Pages" icon={faCopy} items={submenus[1]} />
-        <NavItem>
-          <NavLink tag={Link} to={"/pages"}>
-            <FontAwesomeIcon icon={faImage} className="mr-2" />
-            Portfolio
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink tag={Link} to={"/faq"}>
-            <FontAwesomeIcon icon={faQuestion} className="mr-2" />
-            FAQ
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink tag={Link} to={"/contact"}>
-            <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
-            Contact
           </NavLink>
         </NavItem>
       </Nav>

@@ -9,6 +9,8 @@ import {
   Nav,
   NavItem,
   NavLink,
+  Row,
+  Col,
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
@@ -31,22 +33,18 @@ const Topbar = ({ toggleSidebar }) => {
         <Nav className="ml-auto" navbar>
           <NavItem>
             <NavLink tag={Link} to={"/page-1"}>
-              page 1
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink tag={Link} to={"/page-2"}>
-              page 2
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink tag={Link} to={"/page-3"}>
-              page 3
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink tag={Link} to={"/page-4"}>
-              page 4
+              <form>
+                <label>Timings</label>
+                <Row>
+                  <Col>
+                    <input type="time" />
+                  </Col>
+
+                  <Col>
+                    <input type="time" />
+                  </Col>
+                </Row>
+              </form>
             </NavLink>
           </NavItem>
         </Nav>
