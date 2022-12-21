@@ -11,10 +11,12 @@ import {
   NavLink,
   Row,
   Col,
+  Container,
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import TimePicker from "react-time-picker";
 
 const Topbar = ({ toggleSidebar }) => {
   const [topbarIsOpen, setTopbarOpen] = useState(true);
@@ -22,6 +24,7 @@ const Topbar = ({ toggleSidebar }) => {
 
   const [selectedDate, setSelectedDate] = useState(null);
 
+  const [value, setValue] = useState();
   return (
     <Navbar
       color="light"
@@ -34,6 +37,21 @@ const Topbar = ({ toggleSidebar }) => {
       </Button>
       <NavbarToggler onClick={toggleTopbar} />
       <Collapse isOpen={topbarIsOpen} navbar>
+        <Container>
+          <form>
+            <Row>
+              <Col>
+                <label>Name </label>
+                <input />
+              </Col>
+              <Col>
+                <label>Place </label>
+                <input />
+              </Col>
+            </Row>
+          </form>
+        </Container>
+
         <Nav className="ml-auto" navbar>
           <NavItem>
             <NavLink tag={Link} to={"/page-1"}>
@@ -41,15 +59,22 @@ const Topbar = ({ toggleSidebar }) => {
                 selected={selectedDate}
                 onChange={(date) => setSelectedDate(date)}
               />
+
               <form>
                 <label>Timings</label>
                 <Row>
                   <Col>
-                    <input type="time" />
+                    <TimePicker onChange={setValue} value={value} />
                   </Col>
 
                   <Col>
-                    <input type="time" />
+                    <TimePicker />
+                  </Col>
+                  <Col>
+                    <br />{" "}
+                    <button type="button" class="btn btn-success">
+                      Submit
+                    </button>
                   </Col>
                 </Row>
               </form>
