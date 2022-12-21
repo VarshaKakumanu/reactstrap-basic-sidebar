@@ -13,10 +13,14 @@ import {
   Col,
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import ReactDatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Topbar = ({ toggleSidebar }) => {
   const [topbarIsOpen, setTopbarOpen] = useState(true);
   const toggleTopbar = () => setTopbarOpen(!topbarIsOpen);
+
+  const [selectedDate, setSelectedDate] = useState(null);
 
   return (
     <Navbar
@@ -33,6 +37,10 @@ const Topbar = ({ toggleSidebar }) => {
         <Nav className="ml-auto" navbar>
           <NavItem>
             <NavLink tag={Link} to={"/page-1"}>
+              <ReactDatePicker
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+              />
               <form>
                 <label>Timings</label>
                 <Row>
